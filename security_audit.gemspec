@@ -11,14 +11,13 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Security audit tool for Rails applications"
   spec.description = "Scans Rails project dependencies and detects known CVEs using NVD database."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/orion9ftf/SecurityAudit"
 
   if spec.respond_to?(:metadata)
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-    spec.metadata["homepage_uri"] = "https://github.com/orion9ftf/SecurityAudit"
+    spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = "https://github.com/orion9ftf/SecurityAudit"
     spec.metadata["changelog_uri"] = "https://github.com/orion9ftf/SecurityAudit/CHANGELOG.md"
-    spec.metadata["source_code_uri"] = "https://github.com/orion9ftf/SecurityAudit"
     spec.metadata["bug_tracker_uri"] = "https://github.com/orion9ftf/SecurityAudit/issues"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
