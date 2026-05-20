@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
     spec.metadata["homepage_uri"] = "https://github.com/orion9ftf/SecurityAudit"
     spec.metadata["source_code_uri"] = "https://github.com/orion9ftf/SecurityAudit"
     spec.metadata["changelog_uri"] = "https://github.com/orion9ftf/SecurityAudit/CHANGELOG.md"
-    spec.metadata["source_code_uri"] = "https://github.com/NAME/SecurityAudit"
-    spec.metadata["bug_tracker_uri"] = "https://github.com/NAME/SecurityAudit/issues"
+    spec.metadata["source_code_uri"] = "https://github.com/orion9ftf/SecurityAudit"
+    spec.metadata["bug_tracker_uri"] = "https://github.com/orion9ftf/SecurityAudit/issues"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
