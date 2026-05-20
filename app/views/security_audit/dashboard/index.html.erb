@@ -1,0 +1,27 @@
+<h1>Security Audit Dashboard</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Library</th>
+            <th>Version</th>
+            <th>CVE</th>
+            <th>Severity</th>
+            <th>Recomendacion</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @results.each do |result| %>
+            <% result[:vulnerabilities].each do |vulnerability| %>
+                <tr>
+                    <td><%= result[:package] %></td>
+                    <td><%= result[:version] %></td>
+                    <td><%= result[:id] %></td>
+                    <td><%= result[:severity] %></td>
+                    <td>Actualizar a un -v segura</td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
