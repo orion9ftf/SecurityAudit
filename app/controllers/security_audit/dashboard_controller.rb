@@ -4,7 +4,7 @@ module SecurityAudit
             #@results = VulnerabilityScanner.scan
             #render plain: "Security Audit funcionando"
             @results = VulnerabilityScanner.scan.uniq do |result|
-            [result[:package], result[:version]]
+                [result[:package], result[:version]]
             end
         end
     end
