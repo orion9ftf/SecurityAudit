@@ -1,7 +1,8 @@
 module SecurityAudit
-    class DashboardController < ApplicationController
+    class DashboardController < ActionController::Base
         def index
-            @results = VulnerabilityScanner.scan
+            #@results = VulnerabilityScanner.scan
+            render plain: "Security Audit funcionando"
         end
     end
 end
