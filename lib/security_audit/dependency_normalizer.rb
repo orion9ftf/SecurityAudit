@@ -1,4 +1,3 @@
-# Ahora conectamos el escáner con un servicio que prepare las consultas de vulnerabilidades. Aún no consultaremos NVD; primero normalizamos los datos.
 module SecurityAudit
     class DependencyNormalizer
         def self.normalize

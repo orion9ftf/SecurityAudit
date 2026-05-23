@@ -6,7 +6,7 @@ require "security_audit/version"
 Gem::Specification.new do |spec|
   spec.name          = "security_audit"
   spec.version       = SecurityAudit::VERSION
-  spec.authors       = ["m4pher"]
+  spec.authors       = ["M4yph3r"]
   spec.email         = ["eva.matus@hotmail.com"]
 
   spec.summary = "Security audit tool for Rails applications"

@@ -1,7 +1,3 @@
-# ahora cves trae resultados crudos y todavía puede incluir vulnerabilidades 
-# que no afectan la versión instalada.
-#Creamos un filtro:
-
 module SecurityAudit
     class CveFilter
         def self.filter(dependency, cves)
