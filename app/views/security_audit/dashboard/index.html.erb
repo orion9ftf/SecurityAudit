@@ -13,7 +13,8 @@
 
     <tbody>
         <% @results.each do |result| %>
-            <% result[:vulnerabilities].each do |vulnerability| %>
+            <%# result[:vulnerabilities].each do |vulnerability| %>
+            <% next if result[:vulnerabilities].empty? %>
                 <tr>
                     <td><%= result[:package] %></td>
                     <td><%= result[:version] %></td>
