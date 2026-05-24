@@ -14,16 +14,15 @@
     <tbody>
         <% @results.each do |result| %>
             <% next if result[:vulnerabilities].empty? %>
-
-            <% result[:vulnerabilities].each do |vuln| %>
-                <tr>
-                <td><%= result[:package] %></td>
-                <td><%= result[:version] %></td>
-                <td><%= vuln["cve"]["id"] %></td>
-                <td><%= vuln["cve"]["metrics"]&.dig("cvssMetricV2",0,"baseSeverity") || "N/A" %></td>
-                <td>Actualizar a una versión segura</td>
-                </tr>
-            <% end %>
+            <tr>
+                <% result[:vulnerabilities].each do |vuln| %>
+                    <td><%= result[:package] %></td>
+                    <td><%= result[:version] %></td>
+                    <td><%= vuln["cve"]["id"] %></td>
+                    <td><%= vuln["cve"]["metrics"]&.dig("cvssMetricV2",0,"baseSeverity") || "N/A" %></td>
+                    <td>Upgrade to a secure version</td>
+                <% end %>
+            </tr>
         <% end %>
     </tbody>
 </table>
