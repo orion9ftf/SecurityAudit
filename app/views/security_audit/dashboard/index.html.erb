@@ -7,23 +7,41 @@
             <th>Version</th>
             <th>CVE</th>
             <th>Severity</th>
-            <th>Recomendacion</th>
-            <th>Versión Recomendada</th>
+            <th>Recommendation</th>
+            <th>Recommended Version</th>
         </tr>
     </thead>
-
+    
     <tbody>
         <% @results.each do |result| %>
             <% next if result[:vulnerabilities].empty? %>
             <tr>
+            <td><%= result[:package] %></td>
+            <td><%= result[:version] %></td>
+            <td>
                 <% result[:vulnerabilities].each do |vuln| %>
-                    <td><%= result[:package] %></td>
-                    <td><%= result[:version] %></td>
-                    <td><%= vuln["cve"]["id"] %></td>
-                    <td><%= vuln["cve"]["metrics"]&.dig("cvssMetricV2",0,"baseSeverity") || "N/A" %></td>
-                    <td>Upgrade to a secure version</td>
-                    <td><%= result[:recommended_version] %></td>
+                <div>
+                    <%= vuln["cve"]["id"] %>
+                </div>
                 <% end %>
+            </td>
+            <td>
+                <% result[:vulnerabilities].each do |vuln| %>
+                <div>
+                    <%= vuln["cve"]["metrics"]&.dig(
+                    "cvssMetricV2",
+                    0,
+                    "baseSeverity"
+                    ) || "N/A" %>
+                </div>
+                <% end %>
+            </td>
+            <td>
+                Upgrade to secure version
+            </td>
+            <td>
+                <%= result[:recommended_version] %>
+            </td>
             </tr>
         <% end %>
     </tbody>
