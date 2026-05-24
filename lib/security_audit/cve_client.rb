@@ -10,6 +10,7 @@ module SecurityAudit
 
       response = Net::HTTP.get_response(url)
       return {} unless response.code == "200"
+
       JSON.parse(response.body)
     end
   end
