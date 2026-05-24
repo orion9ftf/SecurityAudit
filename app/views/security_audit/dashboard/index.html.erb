@@ -13,16 +13,17 @@
 
     <tbody>
         <% @results.each do |result| %>
-            <%# result[:vulnerabilities].each do |vulnerability| %>
             <% next if result[:vulnerabilities].empty? %>
+
+            <% result[:vulnerabilities].each do |vuln| %>
                 <tr>
-                    <td><%= result[:package] %></td>
-                    <td><%= result[:version] %></td>
-                    <td><%= result[:id] %></td>
-                    <td><%= result[:severity] %></td>
-                    <td>Actualizar a un -v segura</td>
+                <td><%= result[:package] %></td>
+                <td><%= result[:version] %></td>
+                <td><%= vuln["cve"]["id"] %></td>
+                <td><%= vuln["cve"]["metrics"]&.dig("cvssMetricV2",0,"baseSeverity") || "N/A" %></td>
+                <td>Actualizar a una versión segura</td>
                 </tr>
-            <%# end %>
+            <% end %>
         <% end %>
     </tbody>
 </table>
