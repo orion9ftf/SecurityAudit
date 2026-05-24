@@ -8,6 +8,7 @@
             <th>CVE</th>
             <th>Severity</th>
             <th>Recomendacion</th>
+            <th>Versión Recomendada</th>
         </tr>
     </thead>
 
@@ -21,6 +22,7 @@
                     <td><%= vuln["cve"]["id"] %></td>
                     <td><%= vuln["cve"]["metrics"]&.dig("cvssMetricV2",0,"baseSeverity") || "N/A" %></td>
                     <td>Upgrade to a secure version</td>
+                    <td><%= result[:recommended_version] %></td>
                 <% end %>
             </tr>
         <% end %>
