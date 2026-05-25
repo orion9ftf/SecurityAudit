@@ -11,15 +11,24 @@ module SecurityAudit
           nodes = config["nodes"] || []
 
           nodes.any? do |node|
-            cpes = node["cpeMatch"] || []
+            matches = node["cpeMatch"] || []
 
-            cpes.any? do |cpe|
-              criteria = cpe["criteria"]
+            matches.any? do |match|
 
-              next false unless criteria
+              criteria = match["criteria"]
 
-              criteria.downcase.include?(
-                dependency[:package].downcase
+              next false unless criteria&.include?(
+                ":#{dependency[:package]}:"
+              )
+
+              VersionMatcher.vulnerable?(
+                dependency[:version],
+                [
+                  {
+                    start: match["versionStartIncluding"],
+                    end: match["versionEndExcluding"]
+                  }
+                ]
               )
             end
           end
