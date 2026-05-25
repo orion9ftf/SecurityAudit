@@ -7,12 +7,14 @@ module SecurityAudit
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
-      http.open_timeout = 5
-      http.read_timeout = 10
+      http.open_timeout = 15
+      http.read_timeout = 30
 
       response = http.get(url.request_uri)
 
       response.code == "200"
+      rescue Net::OpenTimeout, Net::ReadTimeout
+      {}
     end
   end
 end
